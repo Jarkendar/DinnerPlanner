@@ -3,4 +3,6 @@
     <string name="title_list">List</string>
     <string name="title_planner">Planner</string>
     <string name="title_tmp">TMP</string>
+
+    <string name="recipe_image_content_description">Content description</string>
 </resources>
