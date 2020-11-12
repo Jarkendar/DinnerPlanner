@@ -1,4 +1,4 @@
-package com.dinnerplanner.ui.home
+package com.dinnerplanner.ui.recipeList
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

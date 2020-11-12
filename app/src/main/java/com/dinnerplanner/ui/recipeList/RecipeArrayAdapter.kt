@@ -1,10 +1,11 @@
-package com.dinnerplanner.ui.home
+package com.dinnerplanner.ui.recipeList
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.dinnerplanner.R
 
@@ -25,6 +26,10 @@ class RecipeArrayAdapter(val context: Context, private var data: Array<String>):
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.textView.text = data[position]
+
+        holder.itemView.setOnClickListener {
+            Toast.makeText(context, data[position], Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {
