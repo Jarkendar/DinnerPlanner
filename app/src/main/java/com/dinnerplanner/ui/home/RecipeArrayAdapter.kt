@@ -18,7 +18,7 @@ class RecipeArrayAdapter(val context: Context, private var data: Array<String>):
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         // Inflate the custom layout
-        val recipeView = inflater.inflate(R.layout.recipe_item, parent, false)
+        val recipeView = inflater.inflate(R.layout.recipe_list_item, parent, false)
         // Return a new holder instance
         return ViewHolder(recipeView)
     }

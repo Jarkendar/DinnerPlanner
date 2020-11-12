@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dinnerplanner.R
 
-class HomeFragment : Fragment() {
+class RecipeListFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var recipeListViewModel: RecipeListViewModel
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerAdapter: RecipeArrayAdapter
@@ -24,13 +24,13 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        recipeListViewModel =
+                ViewModelProvider(this).get(RecipeListViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_recipe_list, container, false)
 
         recyclerAdapter = RecipeArrayAdapter(requireContext(), emptyArray())
 
-        homeViewModel.recipeList.observe(viewLifecycleOwner, Observer {
+        recipeListViewModel.recipeList.observe(viewLifecycleOwner, Observer {
             recyclerAdapter.update(it)
         })
 

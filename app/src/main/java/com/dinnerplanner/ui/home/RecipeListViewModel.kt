@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class RecipeListViewModel : ViewModel() {
 
     private val _list = MutableLiveData<Array<String>>().apply {
         value = arrayOf("First", "Second", "Third", "Fourth", "Fifth", "Sixth")
