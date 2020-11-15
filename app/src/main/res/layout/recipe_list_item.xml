@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -43,29 +42,28 @@
             app:layout_constraintTop_toBottomOf="@id/recipe_title"
             android:textSize="@dimen/default_text_size"
             android:layout_marginVertical="@dimen/normal_margin"
-            android:layout_marginStart="@dimen/bigger_margin"/>
+            android:layout_marginStart="@dimen/bigger_margin" />
 
-        <TextView
-            android:id="@+id/recipe_info"
+        <ImageView
+            android:id="@+id/spicy_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Addition info"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:textSize="@dimen/default_text_size"
             android:layout_marginVertical="@dimen/normal_margin"
-            android:layout_marginEnd="@dimen/normal_margin"/>
+            android:layout_marginHorizontal="@dimen/normal_margin"
+            app:srcCompat="@drawable/chili_off" />
 
-
-        <TextView
-            android:id="@+id/textView"
+        <ImageView
+            android:id="@+id/meat_status_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_marginHorizontal="@dimen/normal_margin"
+            android:layout_marginVertical="@dimen/normal_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/spicy_image"
+            app:srcCompat="@drawable/meat_symbol" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

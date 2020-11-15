@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="spicy_red">#FFAF0909</color>
+    <color name="meat_red">#6C0000</color>
+    <color name="vegan_green">#008200</color>
 </resources>

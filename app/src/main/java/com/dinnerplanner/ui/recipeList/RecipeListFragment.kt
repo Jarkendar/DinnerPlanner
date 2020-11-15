@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dinnerplanner.R
 
@@ -34,7 +34,7 @@ class RecipeListFragment : Fragment() {
             recyclerAdapter.update(it)
         })
 
-        recyclerManager = LinearLayoutManager(context)
+        recyclerManager = GridLayoutManager(context, 2)//recyclerManager = LinearLayoutManager(context) TODO grid or linear -> consider
 
         recyclerView = root.findViewById<RecyclerView>(R.id.recipe_list).apply {
             setHasFixedSize(true)

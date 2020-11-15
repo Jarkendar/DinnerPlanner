@@ -15,7 +15,8 @@ class RecipeArrayAdapter(private val context: Context, var recipeArray: Array<Re
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val mTitle: TextView = view.findViewById(R.id.recipe_title)
         val mDescription: TextView = view.findViewById(R.id.recipe_description)
-        val mAdditionInfo: TextView = view.findViewById(R.id.recipe_info)
+        val mSpicy: ImageView = view.findViewById(R.id.spicy_image)
+        val mMeatStatus: ImageView = view.findViewById(R.id.meat_status_image)
         val mRecipeImage: ImageView = view.findViewById(R.id.recipe_image)
     }
 
@@ -34,8 +35,19 @@ class RecipeArrayAdapter(private val context: Context, var recipeArray: Array<Re
         with(holder) {
             mTitle.text = recipeData.title
             mDescription.text = recipeData.shortDescription
-            mAdditionInfo.text = "tmp text"
             mRecipeImage.setImageResource(recipeData.imageResourceID)
+
+            mSpicy.setImageResource(when (recipeData.spicyLevel) {
+                SpicyLevel.NO_SPICY -> R.drawable.chili_off
+                SpicyLevel.MILD -> R.drawable.chili_mild
+                SpicyLevel.MEDIUM -> R.drawable.chili_medium
+                SpicyLevel.HOT -> R.drawable.chili_hot
+            })
+            mMeatStatus.setImageResource(when {
+                recipeData.vegan && recipeData.vegetarian -> R.drawable.vegan_symbol
+                recipeData.vegetarian -> R.drawable.vegetarian_symbol
+                else -> R.drawable.meat_symbol
+            })
         }
 
         holder.itemView.setOnClickListener {
