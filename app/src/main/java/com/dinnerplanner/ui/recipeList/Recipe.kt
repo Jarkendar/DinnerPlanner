@@ -55,6 +55,4 @@ data class Recipe(
     override fun describeContents(): Int {
         return 0
     }
-
-
 }

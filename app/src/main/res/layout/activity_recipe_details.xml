@@ -5,4 +5,47 @@
     android:layout_height="match_parent"
     tools:context=".ui.recipeList.RecipeDetailsActivity">
 
+    <TextView
+        android:id="@+id/details_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title" />
+
+    <TextView
+        android:id="@+id/details_components"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Components" />
+
+    <TextView
+        android:id="@+id/details_preparing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="preparing" />
+
+    <TextView
+        android:id="@+id/details_spicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="spicy" />
+
+    <ImageView
+        android:id="@+id/details_spicy_icon"
+        android:layout_width="@dimen/additional_icon_size"
+        android:layout_height="@dimen/additional_icon_size"
+        android:src="@drawable/chili_mild" />
+
+    <TextView
+        android:id="@+id/details_meat_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="meat status" />
+
+    <ImageView
+        android:id="@+id/details_meat_status_icon"
+        android:layout_width="@dimen/additional_icon_size"
+        android:layout_height="@dimen/additional_icon_size"
+        android:src="@drawable/meat_symbol" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
