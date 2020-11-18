@@ -10,6 +10,7 @@ data class Recipe(
     val description: String,
     val componentsArray: Array<String>,
     val categoriesArray: Array<String>,
+    val instruction: Array<String>,
     val vegan: Boolean,
     val vegetarian: Boolean,
     val spicyLevel: SpicyLevel
@@ -35,6 +36,7 @@ data class Recipe(
         parcel.readString()!!,
         parcel.createStringArray()!!,
         parcel.createStringArray()!!,
+        parcel.createStringArray()!!,
         parcel.readByte() != 0.toByte(),
         parcel.readByte() != 0.toByte(),
         SpicyLevel.values()[parcel.readInt()]
@@ -47,6 +49,7 @@ data class Recipe(
         parcel.writeString(description)
         parcel.writeStringArray(componentsArray)
         parcel.writeStringArray(categoriesArray)
+        parcel.writeStringArray(instruction)
         parcel.writeByte(if (vegan) 1 else 0)
         parcel.writeByte(if (vegetarian) 1 else 0)
         parcel.writeInt(spicyLevel.ordinal)
