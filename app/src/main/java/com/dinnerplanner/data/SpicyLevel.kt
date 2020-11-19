@@ -1,4 +1,4 @@
-package com.dinnerplanner.ui.recipeList
+package com.dinnerplanner.data
 
 enum class SpicyLevel {
     NO_SPICY,

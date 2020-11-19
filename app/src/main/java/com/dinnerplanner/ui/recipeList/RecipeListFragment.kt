@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dinnerplanner.R
+import com.dinnerplanner.utils.InjectorUtils
 
 class RecipeListFragment : Fragment() {
 
@@ -24,17 +25,20 @@ class RecipeListFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        recipeListViewModel =
-                ViewModelProvider(this).get(RecipeListViewModel::class.java)
+        val factory = InjectorUtils.provideRecipeListViewModelFactory()
+        recipeListViewModel = ViewModelProvider(this, factory).get(RecipeListViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_recipe_list, container, false)
 
         recyclerAdapter = RecipeArrayAdapter(requireContext(), emptyArray())
 
-        recipeListViewModel.recipeList.observe(viewLifecycleOwner, Observer {
-            recyclerAdapter.update(it)
+        recipeListViewModel.getRecipes().observe(viewLifecycleOwner, Observer {
+            recyclerAdapter.update(it.toTypedArray())
         })
 
-        recyclerManager = GridLayoutManager(context, 2)//recyclerManager = LinearLayoutManager(context) TODO grid or linear -> consider
+        recyclerManager = GridLayoutManager(
+            context,
+            2
+        )//recyclerManager = LinearLayoutManager(context) TODO grid or linear -> consider
 
         recyclerView = root.findViewById<RecyclerView>(R.id.recipe_list).apply {
             setHasFixedSize(true)

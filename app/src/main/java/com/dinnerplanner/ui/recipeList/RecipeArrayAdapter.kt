@@ -9,6 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dinnerplanner.R
+import com.dinnerplanner.data.MeatStatus
+import com.dinnerplanner.data.Recipe
+import com.dinnerplanner.data.SpicyLevel
+import com.dinnerplanner.ui.recipeDetails.RecipeDetailsActivity
 
 class RecipeArrayAdapter(private val context: Context, var recipeArray: Array<Recipe>): RecyclerView.Adapter<RecipeArrayAdapter.ViewHolder>() {
 
@@ -37,17 +41,21 @@ class RecipeArrayAdapter(private val context: Context, var recipeArray: Array<Re
             mDescription.text = recipeData.shortDescription
             mRecipeImage.setImageResource(recipeData.imageResourceID)
 
-            mSpicy.setImageResource(when (recipeData.spicyLevel) {
-                SpicyLevel.NO_SPICY -> R.drawable.chili_off
-                SpicyLevel.MILD -> R.drawable.chili_mild
-                SpicyLevel.MEDIUM -> R.drawable.chili_medium
-                SpicyLevel.HOT -> R.drawable.chili_hot
-            })
-            mMeatStatus.setImageResource(when {
-                recipeData.vegan && recipeData.vegetarian -> R.drawable.vegan_symbol
-                recipeData.vegetarian -> R.drawable.vegetarian_symbol
-                else -> R.drawable.meat_symbol
-            })
+            mSpicy.setImageResource(
+                when (recipeData.spicyLevel) {
+                    SpicyLevel.NO_SPICY -> R.drawable.chili_off
+                    SpicyLevel.MILD -> R.drawable.chili_mild
+                    SpicyLevel.MEDIUM -> R.drawable.chili_medium
+                    SpicyLevel.HOT -> R.drawable.chili_hot
+                }
+            )
+            mMeatStatus.setImageResource(
+                when (recipeData.getMeatStatus()) {
+                    MeatStatus.VEGAN -> R.drawable.vegan_symbol
+                    MeatStatus.VEGETARIAN -> R.drawable.vegetarian_symbol
+                    MeatStatus.MEAT -> R.drawable.meat_symbol
+                }
+            )
         }
 
         holder.itemView.setOnClickListener {

@@ -1,4 +1,4 @@
-package com.dinnerplanner.ui.recipeList
+package com.dinnerplanner.data
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -11,8 +11,8 @@ data class Recipe(
     val componentsArray: Array<String>,
     val categoriesArray: Array<String>,
     val instruction: Array<String>,
-    val vegan: Boolean,
-    val vegetarian: Boolean,
+    private val vegan: Boolean,
+    private val vegetarian: Boolean,
     val spicyLevel: SpicyLevel
 ) : Parcelable {
 
@@ -26,6 +26,14 @@ data class Recipe(
 
         override fun newArray(size: Int): Array<Recipe?> {
             return arrayOfNulls(size)
+        }
+    }
+
+    fun getMeatStatus(): MeatStatus {
+        return when {
+            vegan -> MeatStatus.VEGAN
+            vegetarian -> MeatStatus.VEGETARIAN
+            else -> MeatStatus.MEAT
         }
     }
 
