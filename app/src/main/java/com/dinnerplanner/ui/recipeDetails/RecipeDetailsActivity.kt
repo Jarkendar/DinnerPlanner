@@ -9,6 +9,7 @@ import com.dinnerplanner.data.MeatStatus
 import com.dinnerplanner.data.Recipe
 import com.dinnerplanner.data.SpicyLevel
 import kotlinx.android.synthetic.main.activity_recipe_details.*
+import kotlinx.android.synthetic.main.components_list.*
 
 class RecipeDetailsActivity() : AppCompatActivity() {
 

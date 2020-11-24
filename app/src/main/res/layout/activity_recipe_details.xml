@@ -31,33 +31,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/details_title">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/components"
+
+            <include
+                layout="@layout/components_list"
+                android:layout_margin="@dimen/card_margin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/card_margin"
-                app:cardCornerRadius="@dimen/cardview_default_radius"
-                app:cardElevation="@dimen/cardview_default_elevation"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/details_spicy_icon"
                 app:layout_constraintHorizontal_weight="3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/default_padding">
-
-                    <TextView
-                        android:id="@+id/details_components"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Components"
-                        android:textAlignment="textEnd" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/details_spicy"
