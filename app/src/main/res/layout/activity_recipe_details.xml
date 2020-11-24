@@ -22,16 +22,84 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/details_components"
-            android:layout_width="0dp"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/components_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Components"
-            android:textAlignment="textEnd"
-            app:layout_constraintEnd_toStartOf="@id/details_spicy_icon"
-            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/details_title" />
+            app:layout_constraintTop_toBottomOf="@id/details_title">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/components"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/card_margin"
+                app:cardCornerRadius="@dimen/cardview_default_radius"
+                app:cardElevation="@dimen/cardview_default_elevation"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/details_spicy_icon"
+                app:layout_constraintHorizontal_weight="3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/default_padding">
+
+                    <TextView
+                        android:id="@+id/details_components"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Components"
+                        android:textAlignment="textEnd" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/details_spicy"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="spicy"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="2"
+                app:layout_constraintStart_toEndOf="@id/details_spicy_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/details_spicy_icon"
+                android:layout_width="@dimen/additional_icon_size"
+                android:layout_height="@dimen/additional_icon_size"
+                android:src="@drawable/chili_mild"
+                app:layout_constraintEnd_toStartOf="@id/details_spicy"
+                app:layout_constraintHorizontal_weight="2"
+                app:layout_constraintStart_toEndOf="@id/components"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/details_meat_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="meat status"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/details_spicy"
+                app:layout_constraintTop_toBottomOf="@id/details_spicy_icon" />
+
+            <ImageView
+                android:id="@+id/details_meat_status_icon"
+                android:layout_width="@dimen/additional_icon_size"
+                android:layout_height="@dimen/additional_icon_size"
+                android:src="@drawable/meat_symbol"
+                app:layout_constraintEnd_toStartOf="@id/details_meat_status"
+                app:layout_constraintHorizontal_weight="2"
+                app:layout_constraintStart_toStartOf="@id/details_spicy_icon"
+                app:layout_constraintTop_toBottomOf="@id/details_spicy_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <TextView
             android:id="@+id/details_preparing"
@@ -39,45 +107,7 @@
             android:layout_height="wrap_content"
             android:text="preparing"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/details_meat_status_icon" />
-
-        <TextView
-            android:id="@+id/details_spicy"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="spicy"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="2"
-            app:layout_constraintStart_toEndOf="@id/details_spicy_icon"
-            app:layout_constraintTop_toBottomOf="@id/details_title" />
-
-        <ImageView
-            android:id="@+id/details_spicy_icon"
-            android:layout_width="@dimen/additional_icon_size"
-            android:layout_height="@dimen/additional_icon_size"
-            android:src="@drawable/chili_mild"
-            app:layout_constraintEnd_toStartOf="@id/details_spicy"
-            app:layout_constraintHorizontal_weight="2"
-            app:layout_constraintStart_toEndOf="@id/details_components"
-            app:layout_constraintTop_toBottomOf="@id/details_title" />
-
-        <TextView
-            android:id="@+id/details_meat_status"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="meat status"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/details_meat_status_icon"
-            app:layout_constraintTop_toBottomOf="@id/details_spicy_icon" />
-
-        <ImageView
-            android:id="@+id/details_meat_status_icon"
-            android:layout_width="@dimen/additional_icon_size"
-            android:layout_height="@dimen/additional_icon_size"
-            android:src="@drawable/meat_symbol"
-            app:layout_constraintEnd_toStartOf="@id/details_meat_status"
-            app:layout_constraintStart_toEndOf="@id/details_components"
-            app:layout_constraintTop_toBottomOf="@id/details_spicy_icon" />
+            app:layout_constraintTop_toBottomOf="@id/components_layout" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
