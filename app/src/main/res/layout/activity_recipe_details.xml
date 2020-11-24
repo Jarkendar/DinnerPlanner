@@ -20,6 +20,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/bigger_margin"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -29,6 +30,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/normal_margin"
+            android:paddingVertical="@dimen/normal_margin"
             app:layout_constraintTop_toBottomOf="@id/details_title">
 
 
@@ -51,7 +54,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_weight="2"
                 app:layout_constraintStart_toEndOf="@id/details_spicy_icon"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@id/details_spicy_icon"
+                app:layout_constraintTop_toTopOf="@id/details_spicy_icon" />
 
             <ImageView
                 android:id="@+id/details_spicy_icon"
@@ -61,6 +65,7 @@
                 app:layout_constraintEnd_toStartOf="@id/details_spicy"
                 app:layout_constraintHorizontal_weight="2"
                 app:layout_constraintStart_toEndOf="@id/components"
+                android:layout_marginHorizontal="@dimen/normal_margin"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -70,7 +75,8 @@
                 android:text="meat status"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/details_spicy"
-                app:layout_constraintTop_toBottomOf="@id/details_spicy_icon" />
+                app:layout_constraintBottom_toBottomOf="@id/details_meat_status_icon"
+                app:layout_constraintTop_toTopOf="@id/details_meat_status_icon" />
 
             <ImageView
                 android:id="@+id/details_meat_status_icon"
@@ -80,6 +86,8 @@
                 app:layout_constraintEnd_toStartOf="@id/details_meat_status"
                 app:layout_constraintHorizontal_weight="2"
                 app:layout_constraintStart_toStartOf="@id/details_spicy_icon"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginEnd="@dimen/normal_margin"
                 app:layout_constraintTop_toBottomOf="@id/details_spicy_icon" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -91,6 +99,7 @@
             android:layout_height="wrap_content"
             android:text="preparing"
             app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginVertical="@dimen/normal_margin"
             app:layout_constraintTop_toBottomOf="@id/components_layout" />
 
 
