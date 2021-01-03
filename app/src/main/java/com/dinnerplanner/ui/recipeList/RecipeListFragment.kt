@@ -25,7 +25,7 @@ class RecipeListFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        val factory = InjectorUtils.provideRecipeListViewModelFactory()
+        val factory = InjectorUtils.provideRecipeListViewModelFactory(requireContext())
         recipeListViewModel = ViewModelProvider(this, factory).get(RecipeListViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_recipe_list, container, false)
 

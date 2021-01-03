@@ -1,5 +1,10 @@
 package com.dinnerplanner.data
 
+import android.content.Context
+import com.dinnerplanner.Database
+import com.squareup.sqldelight.android.AndroidSqliteDriver
+import com.squareup.sqldelight.db.SqlDriver
+
 class RecipeRepository private constructor(private val recipeDao: FakeRecipeDao) {
 
     fun addRecipe(recipe: Recipe) {
@@ -12,8 +17,19 @@ class RecipeRepository private constructor(private val recipeDao: FakeRecipeDao)
         @Volatile
         private var instance: RecipeRepository? = null
 
-        fun getInstance(recipeDao: FakeRecipeDao) = instance ?: synchronized(this) {
-            instance ?: RecipeRepository(recipeDao).also { instance = it }
-        }
+        fun getInstance(recipeDao: FakeRecipeDao, context: Context) =
+            instance ?: synchronized(this) {
+                val driver: SqlDriver = AndroidSqliteDriver(Database.Schema, context, "test.db")
+
+                val database = Database(driver)
+
+                val playerQueries: TestDatabaseQueries = database.testDatabaseQueries
+
+                println(playerQueries.selectAll().executeAsList())
+
+                playerQueries.insertTest()
+                println(playerQueries.selectAll().executeAsList())
+                instance ?: RecipeRepository(recipeDao).also { instance = it }
+            }
     }
 }
