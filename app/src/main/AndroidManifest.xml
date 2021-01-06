@@ -3,13 +3,13 @@
     package="com.dinnerplanner">
 
     <application
-        android:allowBackup="true"
+        android:name=".MainApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DinnerPlanner">
-        <activity android:name=".ui.recipeDetails.RecipeDetailsActivity"></activity>
+        <activity android:name=".ui.recipeDetails.RecipeDetailsActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import com.dinnerplanner.data.Recipe
 import com.dinnerplanner.data.RecipeRepository
 
-class RecipeListViewModel(private val recipeRepository: RecipeRepository) : ViewModel() {
+class RecipeListViewModel constructor(private val recipeRepository: RecipeRepository) :
+    ViewModel() {
 
     fun getRecipes() = recipeRepository.getRecipes()
 

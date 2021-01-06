@@ -6,27 +6,27 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dinnerplanner.R
-import com.dinnerplanner.utils.InjectorUtils
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class RecipeListFragment : Fragment() {
 
-    private lateinit var recipeListViewModel: RecipeListViewModel
+    @Inject
+    lateinit var recipeListViewModel: RecipeListViewModel
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerAdapter: RecipeArrayAdapter
     private lateinit var recyclerManager: RecyclerView.LayoutManager
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        val factory = InjectorUtils.provideRecipeListViewModelFactory(requireContext())
-        recipeListViewModel = ViewModelProvider(this, factory).get(RecipeListViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_recipe_list, container, false)
 
         recyclerAdapter = RecipeArrayAdapter(requireContext(), emptyArray())

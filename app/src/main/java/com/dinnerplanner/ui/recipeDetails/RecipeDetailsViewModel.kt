@@ -6,7 +6,7 @@ import com.dinnerplanner.data.MeatStatus
 import com.dinnerplanner.data.Recipe
 import com.dinnerplanner.data.SpicyLevel
 
-class RecipeDetailsViewModel(recipe: Recipe) : ViewModel() {
+class RecipeDetailsViewModel : ViewModel() {
 
     val title = MutableLiveData<String>()
     val components = MutableLiveData<Array<String>>()
@@ -16,12 +16,14 @@ class RecipeDetailsViewModel(recipe: Recipe) : ViewModel() {
     val vegan = MutableLiveData<Boolean>()
     val vegetarian = MutableLiveData<Boolean>()
 
-    init {
+    fun setRecipe(recipe: Recipe) {
         title.value = recipe.title
         components.value = recipe.componentsArray
         instruction.value = recipe.instruction
         spicyLevel.value = recipe.spicyLevel
         meatStatus.value = recipe.getMeatStatus()
     }
+
+
 
 }

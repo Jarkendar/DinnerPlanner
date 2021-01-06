@@ -3,29 +3,27 @@ package com.dinnerplanner.ui.recipeDetails
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.dinnerplanner.R
 import com.dinnerplanner.data.MeatStatus
 import com.dinnerplanner.data.Recipe
 import com.dinnerplanner.data.SpicyLevel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_recipe_details.*
 import kotlinx.android.synthetic.main.components_list.*
+import javax.inject.Inject
 
-class RecipeDetailsActivity() : AppCompatActivity() {
+@AndroidEntryPoint
+class RecipeDetailsActivity : AppCompatActivity() {
 
-
-    private lateinit var viewModel: RecipeDetailsViewModel
-    private lateinit var viewModelFactory: RecipeDetailsViewModelFactory
+    @Inject
+    lateinit var viewModel: RecipeDetailsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_details)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        viewModelFactory =
-            RecipeDetailsViewModelFactory(intent.getParcelableExtra(Recipe.RECIPE_KEY)!!)
-        viewModel =
-            ViewModelProvider(this, viewModelFactory).get(RecipeDetailsViewModel::class.java)
+        viewModel.setRecipe(intent.getParcelableExtra(Recipe.RECIPE_KEY)!!)
 
         initializeView(this)
     }
