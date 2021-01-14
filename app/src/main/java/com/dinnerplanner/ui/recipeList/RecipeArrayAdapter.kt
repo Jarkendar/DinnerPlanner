@@ -39,7 +39,17 @@ class RecipeArrayAdapter(private val context: Context, var recipeArray: Array<Re
         with(holder) {
             mTitle.text = recipeData.title
             mDescription.text = recipeData.shortDescription
-            mRecipeImage.setImageResource(recipeData.imageResourceID)
+            mRecipeImage.setImageResource(
+                when (recipeData.imageResourceID) {// TODO to change on image from database
+                    1 -> R.color.design_default_color_secondary_variant
+                    2 -> R.color.design_default_color_primary
+                    3 -> R.color.design_default_color_error
+                    4 -> R.color.black
+                    5 -> R.color.design_default_color_primary_dark
+                    6 -> R.color.design_default_color_secondary
+                    else -> R.color.design_default_color_primary_dark
+                }
+            )
 
             mSpicy.setImageResource(
                 when (recipeData.spicyLevel) {
