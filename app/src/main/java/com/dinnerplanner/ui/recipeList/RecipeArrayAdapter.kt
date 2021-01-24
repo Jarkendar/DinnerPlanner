@@ -13,6 +13,7 @@ import com.dinnerplanner.data.MeatStatus
 import com.dinnerplanner.data.Recipe
 import com.dinnerplanner.data.SpicyLevel
 import com.dinnerplanner.ui.recipeDetails.RecipeDetailsActivity
+import com.dinnerplanner.utils.getMeatStatus
 
 class RecipeArrayAdapter(private val context: Context, var recipeArray: Array<Recipe>): RecyclerView.Adapter<RecipeArrayAdapter.ViewHolder>() {
 

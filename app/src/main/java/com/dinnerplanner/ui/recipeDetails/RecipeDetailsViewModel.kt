@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.dinnerplanner.data.MeatStatus
 import com.dinnerplanner.data.Recipe
 import com.dinnerplanner.data.SpicyLevel
+import com.dinnerplanner.utils.getMeatStatus
 
 class RecipeDetailsViewModel : ViewModel() {
 
@@ -23,7 +24,4 @@ class RecipeDetailsViewModel : ViewModel() {
         spicyLevel.value = recipe.spicyLevel
         meatStatus.value = recipe.getMeatStatus()
     }
-
-
-
 }
