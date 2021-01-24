@@ -1,18 +1,17 @@
 package com.dinnerplanner.ui.recipeList
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.dinnerplanner.R
 import com.dinnerplanner.data.MeatStatus
 import com.dinnerplanner.data.Recipe
 import com.dinnerplanner.data.SpicyLevel
-import com.dinnerplanner.ui.recipeDetails.RecipeDetailsActivity
 import com.dinnerplanner.utils.getMeatStatus
 
 class RecipeArrayAdapter(private val context: Context, var recipeArray: Array<Recipe>): RecyclerView.Adapter<RecipeArrayAdapter.ViewHolder>() {
@@ -70,8 +69,10 @@ class RecipeArrayAdapter(private val context: Context, var recipeArray: Array<Re
         }
 
         holder.itemView.setOnClickListener {
-            context.startActivity(Intent(context, RecipeDetailsActivity::class.java)
-                    .apply { putExtra(Recipe.RECIPE_KEY, recipeData) })
+            RecipeDetailsDialog(recipeData).show(
+                (context as FragmentActivity).supportFragmentManager,
+                "TAG"
+            )
         }
     }
 

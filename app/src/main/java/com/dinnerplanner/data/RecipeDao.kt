@@ -15,7 +15,7 @@ class RecipeDao @Inject constructor(appContext: Context) {
     private val recipeList = mutableListOf<Recipe>()
 
     private val recipes = MutableLiveData<List<Recipe>>()
-    private var recipeQueries: RecipeDatabaseQueries
+    private var recipeQueries: RecipeQueries
 
     init {
         val driver: SqlDriver = AndroidSqliteDriver(Database.Schema, appContext, "test.db")
@@ -27,7 +27,7 @@ class RecipeDao @Inject constructor(appContext: Context) {
 
         val database = Database(
             driver,
-            RecipeDatabaseAdapter = RecipeDatabase.Adapter(
+            RecipeAdapter = Recipe.Adapter(
                 componentListAdapter = listOfStringsAdapter,
                 categoriesArrayAdapter = listOfStringsAdapter,
                 instructionAdapter = listOfStringsAdapter,
@@ -35,28 +35,12 @@ class RecipeDao @Inject constructor(appContext: Context) {
             )
         )
 
-        recipeQueries = database.recipeDatabaseQueries
+        recipeQueries = database.recipeQueries
 
         recipeQueries.initDatabase()
         println(recipeQueries.selectAll().executeAsList())
 
-        recipes.value = recipeQueries.selectAll().executeAsList().map { convertToRecipe(it) }
-    }
-
-    private fun convertToRecipe(item: RecipeDatabase): Recipe = with(item) {
-        return Recipe(
-            imageResourceID,
-            title,
-            shortDescription,
-            description,
-            componentList.toTypedArray(),
-            categoriesArray.toTypedArray(),
-            instruction.toTypedArray(),
-            vegan,
-            vegetarian,
-            spicyLevel
-        )
-
+        recipes.value = recipeQueries.selectAll().executeAsList()
     }
 
     fun addRecipe(recipe: Recipe) {

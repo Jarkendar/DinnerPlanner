@@ -3,7 +3,6 @@ package com.dinnerplanner.utils
 import android.content.Context
 import com.dinnerplanner.data.RecipeDao
 import com.dinnerplanner.data.RecipeRepository
-import com.dinnerplanner.ui.recipeDetails.RecipeDetailsViewModel
 import com.dinnerplanner.ui.recipeList.RecipeListViewModel
 import dagger.Module
 import dagger.Provides
@@ -25,8 +24,4 @@ class HiltInjector {
     @Provides
     fun provideRecipeListViewModel(recipeRepository: RecipeRepository): RecipeListViewModel =
         RecipeListViewModel(recipeRepository)
-
-    @Singleton
-    @Provides
-    fun provideRecipeDetailsViewModel() = RecipeDetailsViewModel()
 }

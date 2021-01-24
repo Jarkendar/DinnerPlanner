@@ -29,7 +29,7 @@ class RecipeListFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_recipe_list, container, false)
 
-        recyclerAdapter = RecipeArrayAdapter(requireContext(), emptyArray())
+        recyclerAdapter = RecipeArrayAdapter(requireActivity(), emptyArray())
 
         recipeListViewModel.getRecipes().observe(viewLifecycleOwner, Observer {
             recyclerAdapter.update(it.toTypedArray())
