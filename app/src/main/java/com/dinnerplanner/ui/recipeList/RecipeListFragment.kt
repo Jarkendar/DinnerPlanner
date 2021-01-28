@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dinnerplanner.R
+import com.dinnerplanner.RecipeSetViewModel
 import com.dinnerplanner.data.Recipe
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -23,8 +25,7 @@ class RecipeListFragment : Fragment(), RecipeArrayAdapter.ItemClickListener {
     private lateinit var recyclerAdapter: RecipeArrayAdapter
     private lateinit var recyclerManager: RecyclerView.LayoutManager
 
-    val recipeSet = mutableSetOf<Recipe>()
-
+    private val recipeSet: RecipeSetViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,9 +55,9 @@ class RecipeListFragment : Fragment(), RecipeArrayAdapter.ItemClickListener {
 
     override fun longClick(recipe: Recipe, isClicked: Boolean) {
         if (isClicked) {
-            recipeSet.add(recipe)
+            recipeSet.addRecipe(recipe)
         } else {
-            recipeSet.remove(recipe)
+            recipeSet.removeRecipe(recipe)
         }
     }
 }
