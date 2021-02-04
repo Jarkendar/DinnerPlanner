@@ -1,6 +1,8 @@
 package com.dinnerplanner
 
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -64,5 +66,10 @@ class MainActivity : AppCompatActivity() {
 //            Log.d("********", it.toString())
 //            return@setOnNavigationItemSelectedListener true
 //        }
+    }
+
+    public fun addRecipeToList(view: View) {
+        //todo open view to add recipe, remove toast
+        Toast.makeText(this, "Click FAB", Toast.LENGTH_SHORT).show()
     }
 }
