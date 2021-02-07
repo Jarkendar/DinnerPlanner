@@ -46,6 +46,16 @@
             android:layout_marginStart="@dimen/bigger_margin" />
 
         <ImageView
+            android:id="@+id/difficulty_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/normal_margin"
+            android:layout_marginVertical="@dimen/normal_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/meat_status_image"
+            app:srcCompat="@drawable/roman_numeral_1" />
+
+        <ImageView
             android:id="@+id/spicy_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -7,9 +7,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.dinnerplanner.R
-import com.dinnerplanner.data.MeatStatus
 import com.dinnerplanner.data.Recipe
-import com.dinnerplanner.data.SpicyLevel
 import com.dinnerplanner.utils.getMeatStatus
 import kotlinx.android.synthetic.main.activity_recipe_details.view.*
 import kotlinx.android.synthetic.main.components_list.view.*
@@ -44,37 +42,13 @@ class RecipeDetailsDialog(private val recipe: Recipe) : DialogFragment() {
             details_title.text = recipe.title
             details_components.text = recipe.componentList.joinToString("\n")
             details_preparing.text = recipe.instruction.joinToString("\n")
-            when (recipe.spicyLevel) {
-                SpicyLevel.NO_SPICY -> {
-                    details_spicy.text = "NO SPICY"
-                    details_spicy_icon.setImageResource(R.drawable.chili_off)
-                }
-                SpicyLevel.MILD -> {
-                    details_spicy.text = "MILD"
-                    details_spicy_icon.setImageResource(R.drawable.chili_mild)
-                }
-                SpicyLevel.MEDIUM -> {
-                    details_spicy.text = "MEDIUM"
-                    details_spicy_icon.setImageResource(R.drawable.chili_medium)
-                }
-                SpicyLevel.HOT -> {
-                    details_spicy.text = "HOT"
-                    details_spicy_icon.setImageResource(R.drawable.chili_hot)
-                }
-            }
-            when (recipe.getMeatStatus()) {
-                MeatStatus.VEGAN -> {
-                    details_meat_status.text = "VEGAN"
-                    details_meat_status_icon.setImageResource(R.drawable.vegan_symbol)
-                }
-                MeatStatus.VEGETARIAN -> {
-                    details_meat_status.text = "VEGETARIAN"
-                    details_meat_status_icon.setImageResource(R.drawable.vegetarian_symbol)
-                }
-                MeatStatus.MEAT -> {
-                    details_meat_status.text = "MEAT"
-                    details_meat_status_icon.setImageResource(R.drawable.meat_symbol)
-                }
+            details_spicy.text = resources.getText(recipe.spicyLevel.stringId)
+            details_spicy_icon.setImageResource(recipe.spicyLevel.drawableId)
+            details_difficulty.text = resources.getText(recipe.difficultyLevel.stringId)
+            details_difficulty_icon.setImageResource(recipe.difficultyLevel.drawableId)
+            with(recipe.getMeatStatus()) {
+                details_meat_status.text = resources.getText(this.stringId)
+                details_meat_status_icon.setImageResource(this.drawableID)
             }
         }
     }

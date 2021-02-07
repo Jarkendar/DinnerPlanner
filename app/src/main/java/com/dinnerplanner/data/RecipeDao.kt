@@ -31,7 +31,8 @@ class RecipeDao @Inject constructor(appContext: Context) {
                 componentListAdapter = listOfStringsAdapter,
                 categoriesArrayAdapter = listOfStringsAdapter,
                 instructionAdapter = listOfStringsAdapter,
-                spicyLevelAdapter = EnumColumnAdapter()
+                spicyLevelAdapter = EnumColumnAdapter(),
+                difficultyLevelAdapter = EnumColumnAdapter()
             )
         )
 

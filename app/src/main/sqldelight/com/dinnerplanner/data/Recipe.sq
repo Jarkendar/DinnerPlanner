@@ -1,4 +1,5 @@
 import com.dinnerplanner.data.SpicyLevel;
+import com.dinnerplanner.data.DifficultyLevel;
 import java.lang.Boolean;
 import java.util.ArrayList;
 import kotlin.collections.List;
@@ -14,7 +15,8 @@ CREATE TABLE Recipe (
     instruction TEXT AS List<String> NOT NULL,
     vegan INTEGER AS Boolean DEFAULT 0 NOT NULL,
     vegetarian INTEGER AS Boolean DEFAULT 0 NOT NULL,
-    spicyLevel TEXT AS SpicyLevel NOT NULL
+    spicyLevel TEXT AS SpicyLevel NOT NULL,
+    difficultyLevel TEXT AS DifficultyLevel NOT NULL
 );
 
 selectAll:
@@ -23,34 +25,34 @@ FROM Recipe;
 
 initDatabase:
 INSERT OR REPLACE INTO Recipe(id, imageResourceID, title, shortDescription, description, componentList, categoriesArray,
-instruction, vegan, vegetarian, spicyLevel)
+instruction, vegan, vegetarian, spicyLevel, difficultyLevel)
 VALUES  (0,1, "Ciasto", "Słodki wypiek", "Zawiera dużo cukru",
             "cukier,mąka,miłość",
             "słodkie",
             "1,2,3",
-            1, 1, "NO_SPICY"),
+            1, 1, "NO_SPICY", "EASY"),
         (1,2, "Naleśnik", "Słodki placek", "Najlepiej podać z bananem i nutellą",
             "cukier,mąka,jajka,mleko,woda",
             "słodkie,smażone",
             "1,2,3",
-            0, 1, "NO_SPICY"),
+            0, 1, "NO_SPICY", "MEDIUM"),
         (2,3, "Ziemniaki", "Zwykłe polskie danie", "Nie gotowane trują",
             "ziemniaki",
             "obiad",
             "1,2,3",
-            1, 1, "NO_SPICY"),
+            1, 1, "NO_SPICY", "HARD"),
         (3,4, "Pomidory", "Czerwone jagody", "Podawać z dużą ilością słodkiej śmietany",
             "pomidory,śmietana,sól,pieprz",
             "obiad,kolacja,pycha",
             "1,2,3",
-            0, 1, "HOT"),
+            0, 1, "HOT", "VERY_HARD"),
         (4,5, "Mięsko", "Pożywienie godne człowieka wyprostowanego", "Przed wykonaniem zabij",
             "mięso,sos",
             "obiad",
             "1,2,3",
-            0, 0, "MEDIUM"),
+            0, 0, "MEDIUM", "EASY"),
         (5,6, "Pyzy", "Te prawdziwe bez mięsa", "A może frytki do tego",
             "mąka,drożdże,woda,czas",
             "obiad,kolacja,pycha,w dużej ilości",
             "1,2,3",
-            1, 1, "MILD");
+            1, 1, "MILD", "MEDIUM");

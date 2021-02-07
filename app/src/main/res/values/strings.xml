@@ -5,4 +5,18 @@
     <string name="title_tmp">TMP</string>
 
     <string name="recipe_image_content_description">Content description</string>
+
+    <string name="spicy_level_no_spicy">No spicy</string>
+    <string name="spicy_level_mild">Mild</string>
+    <string name="spicy_level_medium">Medium</string>
+    <string name="spicy_level_hot">Hot</string>
+
+    <string name="meat_status_vegan">Vegan</string>
+    <string name="meat_status_vegetarian">Vegetarian</string>
+    <string name="meat_status_meat">Meat</string>
+
+    <string name="difficulty_level_easy">Easy</string>
+    <string name="difficulty_level_medium">Medium</string>
+    <string name="difficulty_level_hard">Hard</string>
+    <string name="difficulty_level_very_hard">Very hard</string>
 </resources>

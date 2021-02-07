@@ -101,6 +101,28 @@
                 app:layout_constraintStart_toStartOf="@id/details_spicy_icon"
                 app:layout_constraintTop_toBottomOf="@id/details_spicy_icon" />
 
+            <TextView
+                android:id="@+id/details_difficulty"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="trudność"
+                app:layout_constraintBottom_toBottomOf="@id/details_difficulty_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/details_meat_status"
+                app:layout_constraintTop_toTopOf="@id/details_difficulty_icon" />
+
+            <ImageView
+                android:id="@+id/details_difficulty_icon"
+                android:layout_width="@dimen/additional_icon_size"
+                android:layout_height="@dimen/additional_icon_size"
+                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_marginEnd="@dimen/normal_margin"
+                android:src="@drawable/roman_numeral_1"
+                app:layout_constraintEnd_toStartOf="@id/details_difficulty"
+                app:layout_constraintHorizontal_weight="2"
+                app:layout_constraintStart_toStartOf="@id/details_meat_status_icon"
+                app:layout_constraintTop_toBottomOf="@id/details_meat_status_icon" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

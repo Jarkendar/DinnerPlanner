@@ -10,9 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.dinnerplanner.R
-import com.dinnerplanner.data.MeatStatus
 import com.dinnerplanner.data.Recipe
-import com.dinnerplanner.data.SpicyLevel
 import com.dinnerplanner.utils.getMeatStatus
 
 class RecipeArrayAdapter(
@@ -32,6 +30,7 @@ class RecipeArrayAdapter(
         val mSpicy: ImageView = view.findViewById(R.id.spicy_image)
         val mMeatStatus: ImageView = view.findViewById(R.id.meat_status_image)
         val mRecipeImage: ImageView = view.findViewById(R.id.recipe_image)
+        val mDifficultyLevel: ImageView = view.findViewById(R.id.difficulty_image)
         var isClicked: Boolean = false
     }
 
@@ -62,21 +61,10 @@ class RecipeArrayAdapter(
                 }
             )
 
-            mSpicy.setImageResource(
-                when (recipeData.spicyLevel) {
-                    SpicyLevel.NO_SPICY -> R.drawable.chili_off
-                    SpicyLevel.MILD -> R.drawable.chili_mild
-                    SpicyLevel.MEDIUM -> R.drawable.chili_medium
-                    SpicyLevel.HOT -> R.drawable.chili_hot
-                }
-            )
-            mMeatStatus.setImageResource(
-                when (recipeData.getMeatStatus()) {
-                    MeatStatus.VEGAN -> R.drawable.vegan_symbol
-                    MeatStatus.VEGETARIAN -> R.drawable.vegetarian_symbol
-                    MeatStatus.MEAT -> R.drawable.meat_symbol
-                }
-            )
+            mSpicy.setImageResource(recipeData.spicyLevel.drawableId)
+            mMeatStatus.setImageResource(recipeData.getMeatStatus().drawableID)
+            mDifficultyLevel.setImageResource(recipeData.difficultyLevel.drawableId)
+
             itemView.setOnClickListener {
                 RecipeDetailsDialog(recipeData).show(
                     (context as FragmentActivity).supportFragmentManager,
