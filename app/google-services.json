@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "660372157464",
+    "project_id": "dinnerplanner-cbe74",
+    "storage_bucket": "dinnerplanner-cbe74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660372157464:android:9492707d7a232496b03f6d",
+        "android_client_info": {
+          "package_name": "com.dinnerplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660372157464-nsul6qgnfu6c1hpks81hgbjbq2qkkukk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dinnerplanner",
+            "certificate_hash": "5715e8e1c153e07aaa769127003df47eb864f926"
+          }
+        },
+        {
+          "client_id": "660372157464-cj907ljng3lp0qcfr28otqknovrdomdr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_jl7cqIrBOj2YPm-yuFtXAJkoFoqP7hc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660372157464-cj907ljng3lp0qcfr28otqknovrdomdr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
