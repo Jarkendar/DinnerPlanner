@@ -1,9 +1,9 @@
 package com.dinnerplanner.ui.recipeList
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.SearchView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -33,6 +33,7 @@ class RecipeListFragment : Fragment(), RecipeArrayAdapter.ItemClickListener {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_recipe_list, container, false)
+        setHasOptionsMenu(true)
 
         recyclerAdapter = RecipeArrayAdapter(requireActivity(), emptyArray(), this)
 
@@ -51,6 +52,36 @@ class RecipeListFragment : Fragment(), RecipeArrayAdapter.ItemClickListener {
             layoutManager = recyclerManager
         }
         return root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.list_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        val searchBar = menu.findItem(R.id.bar_search).actionView as SearchView
+        searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                //todo do something
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                //todo do something
+                return false
+            }
+        })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.filter_menu -> Toast.makeText(context, "Clicked filters menu", Toast.LENGTH_SHORT)
+                .show() //todo do something
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun longClick(recipe: Recipe, isClicked: Boolean) {

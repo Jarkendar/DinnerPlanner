@@ -9,8 +9,8 @@ import androidx.fragment.app.DialogFragment
 import com.dinnerplanner.R
 import com.dinnerplanner.data.Recipe
 import com.dinnerplanner.utils.getMeatStatus
-import kotlinx.android.synthetic.main.activity_recipe_details.view.*
 import kotlinx.android.synthetic.main.components_list.view.*
+import kotlinx.android.synthetic.main.dialog_recipe_details.view.*
 
 class RecipeDetailsDialog(private val recipe: Recipe) : DialogFragment() {
 
@@ -19,7 +19,7 @@ class RecipeDetailsDialog(private val recipe: Recipe) : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_recipe_details, container, false)
+        return inflater.inflate(R.layout.dialog_recipe_details, container, false)
 
     }
 
