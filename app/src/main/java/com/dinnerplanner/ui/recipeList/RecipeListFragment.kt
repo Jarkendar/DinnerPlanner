@@ -63,13 +63,13 @@ class RecipeListFragment : Fragment(), RecipeArrayAdapter.ItemClickListener {
         super.onPrepareOptionsMenu(menu)
         val searchBar = menu.findItem(R.id.bar_search).actionView as SearchView
         searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                //todo do something
+            override fun onQueryTextSubmit(query: String): Boolean {
+                recyclerAdapter.filterResults(query)
                 return false
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                //todo do something
+            override fun onQueryTextChange(newText: String): Boolean {
+                recyclerAdapter.filterResults(newText)
                 return false
             }
         })

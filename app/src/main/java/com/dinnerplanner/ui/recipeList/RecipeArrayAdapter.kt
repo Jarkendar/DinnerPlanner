@@ -19,6 +19,8 @@ class RecipeArrayAdapter(
     private val clickListener: ItemClickListener
 ) : RecyclerView.Adapter<RecipeArrayAdapter.ViewHolder>() {
 
+    private val filter = Filter(recipeArray)
+
     interface ItemClickListener {
         fun longClick(recipe: Recipe, isClicked: Boolean)
     }
@@ -84,8 +86,14 @@ class RecipeArrayAdapter(
         return recipeArray.size
     }
 
-    fun update(updateArray: Array<Recipe>){
-        this.recipeArray = updateArray
+    fun update(updateArray: Array<Recipe>) {
+        filter.sourceArray = updateArray
+        recipeArray = updateArray
+        notifyDataSetChanged()
+    }
+
+    fun filterResults(query: String) {
+        recipeArray = filter.performFilter(query)
         notifyDataSetChanged()
     }
 }
