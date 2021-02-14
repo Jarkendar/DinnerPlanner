@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.dinnerplanner.Database
+import com.google.gson.Gson
 import com.squareup.sqldelight.ColumnAdapter
 import com.squareup.sqldelight.EnumColumnAdapter
 import com.squareup.sqldelight.android.AndroidSqliteDriver
@@ -20,6 +21,14 @@ class RecipeDao @Inject constructor(appContext: Context) {
     init {
         val driver: SqlDriver = AndroidSqliteDriver(Database.Schema, appContext, "test.db")
 
+        val listOfIngredientAdapter = object : ColumnAdapter<List<Ingredient>, String> {
+            override fun decode(databaseValue: String): List<Ingredient> =
+                Gson().fromJson(databaseValue, Array<Ingredient>::class.java).toList()
+
+            override fun encode(value: List<Ingredient>): String = Gson().toJson(value)
+        }
+
+
         val listOfStringsAdapter = object : ColumnAdapter<List<String>, String> {
             override fun decode(databaseValue: String) = databaseValue.split(",")
             override fun encode(value: List<String>) = value.joinToString(separator = ",")
@@ -28,7 +37,7 @@ class RecipeDao @Inject constructor(appContext: Context) {
         val database = Database(
             driver,
             RecipeAdapter = Recipe.Adapter(
-                componentListAdapter = listOfStringsAdapter,
+                componentListAdapter = listOfIngredientAdapter,
                 categoriesArrayAdapter = listOfStringsAdapter,
                 instructionAdapter = listOfStringsAdapter,
                 spicyLevelAdapter = EnumColumnAdapter(),

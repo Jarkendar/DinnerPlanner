@@ -40,7 +40,8 @@ class RecipeDetailsDialog(private val recipe: Recipe) : DialogFragment() {
     private fun setupView(view: View) {
         with(view) {
             details_title.text = recipe.title
-            details_components.text = recipe.componentList.joinToString("\n")
+            details_components.text =
+                recipe.componentList.joinToString("\n") { ingredient -> ingredient.name }
             details_preparing.text = recipe.instruction.joinToString("\n")
             details_spicy.text = resources.getText(recipe.spicyLevel.stringId)
             details_spicy_icon.setImageResource(recipe.spicyLevel.drawableId)

@@ -1,0 +1,5 @@
+CREATE TABLE Ingredient (
+    name TEXT NOT NULL,
+    quantity REAL NOT NULL,
+    unit TEXT NOT NULL
+);
