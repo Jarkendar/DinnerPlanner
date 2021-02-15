@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dinnerplanner.R
 import com.dinnerplanner.data.Recipe
 import com.dinnerplanner.utils.getMeatStatus
@@ -40,8 +41,16 @@ class RecipeDetailsDialog(private val recipe: Recipe) : DialogFragment() {
     private fun setupView(view: View) {
         with(view) {
             details_title.text = recipe.title
-            details_components.text =
-                recipe.componentList.joinToString("\n") { ingredient -> ingredient.name }
+
+//            val recyclerAdapter =
+//            recyclerView = rootView.findViewById<RecyclerView>(R.id.component_list).apply {
+//                setHasFixedSize(true)
+//                adapter = recyclerAdapter
+//            }
+
+            component_list.layoutManager = LinearLayoutManager(context)
+            component_list.adapter = ComponentArrayAdapter(recipe.componentList.toTypedArray())
+
             details_preparing.text = recipe.instruction.joinToString("\n")
             details_spicy.text = resources.getText(recipe.spicyLevel.stringId)
             details_spicy_icon.setImageResource(recipe.spicyLevel.drawableId)

@@ -13,12 +13,16 @@
         android:layout_height="match_parent"
         android:padding="@dimen/default_padding">
 
-        <TextView
-            android:id="@+id/details_components"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/component_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Components"
-            android:textAlignment="textEnd" />
+            android:paddingBottom="?attr/actionBarSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
